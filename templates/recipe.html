@@ -10,10 +10,10 @@
     <header>
         <div class="app-name">Recipe App</div>
         <nav>
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('recipe') }}">Recipe</a></li>
-                <li><a href="{{ url_for('inventory') }}">Inventory</a></li>
+            <ul class="nav-links">
+                <li class="link-item"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="link-item"><a href="{{ url_for('recipe') }}">Recipe</a></li>
+                <li class="link-item"><a href="{{ url_for('inventory') }}">Inventory</a></li>
             </ul>
         </nav>
     </header>
@@ -24,21 +24,25 @@
         <input type="submit" value="Submit">
     </form>
 
-    {% if recipe != "" %}
-        {% for key, value in recipe.items() %}
-            <div class="key-heading">
-                {{key}}
-                {% if value != "" %}
-                    <div class="step-container">
-                        {% for step in value %}
-                            <div class="step">
-                                {{step}}
-                            </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-        {% endfor %}
-    {% endif %}
+    <section class="details-section">
+        {% if recipe != "" %}
+            {% for key, value in recipe.items() %}
+                <div class="key-heading">
+                    {{key}}
+                    {% if value != "" %}
+                        <div class="step-container">
+                            <ol class="step-list">
+                                {% for step in value %}
+                                        <li class="step-item">
+                                            {{step}}
+                                        </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </section>
 </body>
 </html>
