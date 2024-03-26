@@ -25,24 +25,54 @@
     </form>
 
     <section class="details-section">
-        {% if recipe != "" %}
-            {% for key, value in recipe.items() %}
-                <div class="key-heading">
-                    {{key}}
-                    {% if value != "" %}
-                        <div class="step-container">
-                            <ol class="step-list">
-                                {% for step in value %}
-                                        <li class="step-item">
-                                            {{step}}
-                                        </li>
-                                {% endfor %}
-                            </ol>
-                        </div>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% endif %}
+        <div class="details">
+            {% if recipe != "" %}
+                {% for key, value in recipe.items() %}
+                    <div class="item-name">
+                        {{key}}
+                    </div>
+                    <div class="key-heading">
+                        {% if value != "" %}
+                            <div class="step-container">
+                                <span class="recipe-header">
+                                    Recipe
+                                </span>
+                                <ol class="step-list">
+                                    {% for step in value.steps %}
+                                            <li class="step-item">
+                                                {{step}}
+                                            </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                            <div class="used-unused">
+                                <div class="used">
+                                    <div class="used-header">
+                                        Available ingredients
+                                    </div>
+                                    {% for used_ing in value.used %}
+                                        <div class="used-items">
+                                            {{used_ing}}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                    
+                                <div class="unused">
+                                    <div class="used-header">
+                                        Missing ingredients
+                                    </div>
+                                    {% for unused_ing in value.unused %}
+                                        <div class="used-items">
+                                            {{unused_ing}}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
     </section>
 </body>
 </html>

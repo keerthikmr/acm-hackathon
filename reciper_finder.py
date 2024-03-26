@@ -1,6 +1,6 @@
 # import requests
 
-# API_KEY = '60fdfcff605c48379d95f8dec1739b0f'
+# API_KEY = '2eeab4c007dd414a84d729ef80c1f215'
 # ENDPOINT = 'https://api.spoonacular.com/recipes/findByIngredients'
 
 # ingredients = ['chicken', 'rice', 'broccoli']
@@ -17,9 +17,6 @@
     
 #     if response.status_code == 200:
 #         recipes = response.json()
-#         print(recipes)
-#         print("\n")
-#         recipe_list = []
 
 #         params_inst = {
 #             'apiKey': API_KEY,
@@ -29,21 +26,31 @@
 
 #         for recipe in recipes:
 #             steps_list = []
+#             used_ing = []
+#             unused_ing = []
 
 #             recipe_name = recipe['title']
-
 
 #             INST = f'https://api.spoonacular.com/recipes/{recipe["id"]}/analyzedInstructions'
             
 #             inst_response = requests.get(INST, params=params_inst).json()
-#             print("RESPONSE")
-#             print(inst_response)
+
 #             for step in inst_response[0]['steps']:
 #                 steps_list.append(step['step'])
+            
+#             unused = recipe['missedIngredients']
+#             used = recipe['usedIngredients']
 
-#             recipe_dict[recipe_name] = steps_list
-#             print("inner----->")
-#             print(recipe_dict)
+#             for ing in used:
+#                 used_ing.append(ing['originalName'])
+            
+#             for ing in unused:
+#                 unused_ing.append(ing['originalName'])
+
+#             step_used_unused = {'steps': steps_list, 'used': used_ing, 'unused': unused_ing}
+
+#             recipe_dict[recipe_name] = step_used_unused
+
 #         print(recipe_dict)
 #         return recipe_dict
 

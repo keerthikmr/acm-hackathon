@@ -81,30 +81,94 @@ input {
 .details-section{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    width: 100%;
+    /* justify-content: center;
+    justify-self: center; */
+    /* text-align: center;
     align-items: center;
+    height: 300px;
+    width: 1300px; */
     margin-top: 2rem;
+}
+
+.item-name {
+    background-color: lightblue;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+
+
+    /* overflow: hidden; */
+    /* align-items: center;
+    margin-top: 1rem; */
 }
 
 .key-heading {
     display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 90%;
+    flex-direction: row;
+    /* text-align: center; */
+    justify-content: space-around;
+    align-items: center;
+    /* width: 90%; */
     background-color: lightblue;
     font-weight: bold;
     font-size: 20px;
     padding-top: 1rem;
-    margin-left: 1rem;
+    /* margin-left: 1rem; */
     margin-bottom: 2rem;
+    height: 300px;
+    overflow: scroll;
+}
+
+.recipe-header {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .step-container {
     font-weight: normal;
     text-align: left;
+    width: 50%;
     margin-left: 2rem;
     margin-top: 1rem;
     font-size: 16px;
+    height: 300px;
+}
+
+.used-unused {
+    width: 50%;
+    height: 300px;
+    /* overflow: scroll; */
+}
+
+.used {
+    background-color: lightgreen;
+    margin: 1rem;
+}
+
+.used-header {
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.used-items {
+    /* margin: 1rem; */
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    /* padding: 1rem; */
+}
+
+.unused {
+    background-color: lightcoral;
+    margin: 1rem;
 }
 
 .step-list {
