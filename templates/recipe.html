@@ -28,7 +28,7 @@
     <section class="details-section">
         <div class="details">
             {% if recipe != "" %}
-                {% for key, value in recipe.items() %}
+                {% for key, value in recipe[0].items() %}
                     <div class="item-name">
                         {{key}}
                     </div>
@@ -73,8 +73,9 @@
                     </div>
                     
                     <div class="use-recipe">
-                        <form>
-                            <button class="use-recipe-button" onclick="useRecipe({{['some', 'bye']}})">Use Recipe</button>
+                        <form action="/some", method="post">
+                            <input type="text" id="hidden-recipe" name="hidden-recipe" value="{{recipe[1]}}" style="display: none;">
+                            <button class="use-recipe-button" type="submit">Use Recipe</button>
                         </form>
                     </div>
 

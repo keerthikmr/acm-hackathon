@@ -188,3 +188,7 @@ form {
     font-weight: bold;
     font-size: 20px;
 }
+
+form {
+    text-align: center;
+}

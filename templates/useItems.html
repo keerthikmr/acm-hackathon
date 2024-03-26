@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe app</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+</head>
+<body>
+    <header>
+        <div class="app-name">Recipe App</div>
+        <nav>
+            <ul class="nav-links">
+                <li class="link-item"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="link-item"><a href="{{ url_for('recipe') }}">Recipe</a></li>
+                <li class="link-item"><a href="{{ url_for('inventory') }}">Inventory</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        <span class="usage-ques">How much have you used?</span>
+
+        <form action="/some" method="POST">
+            {% if ingredients != "" %} 
+                {% for ingredient in ingredients %}
+                    <label for="{{ingredient}}">{{ingredient}}</label>
+                    <input type="number" id="{{ingredient}}-quantity" name="{{ingredient}}-quantity" placeholder="Quantity">
+                    <br>
+                {% endfor %}
+                <input type="text" id="hidden-ing" name="hidden-ing" value="{{ingredients}}" style="display: none;">
+                <button type="submit">Reduce from Inventory</button>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

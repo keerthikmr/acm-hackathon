@@ -52,7 +52,7 @@
 #             recipe_dict[recipe_name] = step_used_unused
 
 #         print(recipe_dict)
-#         return recipe_dict
+#         return [recipe_dict, ingredients]
 
 #     else:
 #         print('Error fetching recipes:', response.status_code)
