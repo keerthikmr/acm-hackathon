@@ -18,12 +18,27 @@
         </nav>
     </header>
 
-    <form id="ingredient-form">
+    <form id="ingredient-form" action="{{url_for('recipe')}}", method="post">
         <label for="ingredient">Enter an ingredient:</label>
         <input type="text" id="ingredient" name="ingredient">
         <input type="submit" value="Submit">
     </form>
-    
-    {{recipe}}
+
+    {% if recipe != "" %}
+        {% for key, value in recipe.items() %}
+            <div class="key-heading">
+                {{key}}
+                {% if value != "" %}
+                    <div class="step-container">
+                        {% for step in value %}
+                            <div class="step">
+                                {{step}}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
