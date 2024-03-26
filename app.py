@@ -1,9 +1,7 @@
-# Importing flask module in the project is mandatory
-# An object of Flask class is our WSGI application.
 from flask import Flask, render_template
+import reciper_finder
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def index():
@@ -11,17 +9,12 @@ def index():
 
 @app.route('/recipe')
 def recipe():
-    return render_template('recipe.html')
+    return render_template('recipe.html', recipe=reciper_finder.get_recipes(['chicken', 'rice', 'cabbage']))
 
 @app.route('/inventory')
 def inventory():
     return render_template('inventory.html')
 
-
-# main driver function
 if __name__ == '__main__':
-
-	# run() method of Flask class runs the application 
-	# on the local development server.
     app.debug = True
     app.run()

@@ -17,6 +17,40 @@
             </ul>
         </nav>
     </header>
-    Inventory
+    
+    
+    <div class="container">
+        <div class="pantry">
+            <h2>Pantry</h2>
+            <form action="/add_ingredient" method="POST" class="add-button">
+                <input type="text" id="newIngredient" name="newIngredient" placeholder="Add New Ingredient">
+                <button type="submit">+</button>
+            </form>
+        </div>
+
+        <div class="box">
+            <h3>Food Ingredients</h3>
+            <form action="/add_to_inventory" method="POST">
+                {% for ingredient in ingredients %}
+                    <input type="checkbox" id="{{ ingredient }}" name="ingredient" value="{{ ingredient }}">
+                    <label for="{{ ingredient }}">{{ ingredient }}</label><br>
+                {% endfor %}
+                <br>
+                <button type="submit">Add to Inventory</button>
+            </form>
+        </div>
+        
+        <div class="box">
+            {% if inventory %}
+                <h3>Current Inventory</h3>
+                <ul>
+                    {% for item, quantity in inventory.items() %}
+                        <li>{{ item }}: {{ quantity }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+
 </body>
 </html>
