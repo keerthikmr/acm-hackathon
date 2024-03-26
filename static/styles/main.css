@@ -192,3 +192,24 @@ form {
 form {
     text-align: center;
 }
+
+.ing-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 20px
+}
+
+.ing-headers {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    justify-content: space-around;
+    align-items: center;
+    text-align: right;
+    margin-top: 1rem;
+    font-size: 20px
+}
