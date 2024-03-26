@@ -17,13 +17,14 @@
             </ul>
         </nav>
     </header>
-    
-    
+
     <div class="container">
         <div class="pantry">
             <h2>Pantry</h2>
+            <p>Number of Food Ingredients: {{ ingredients|length }}</p> {# Display the count of food ingredients #}
             <form action="/add_ingredient" method="POST" class="add-button">
                 <input type="text" id="newIngredient" name="newIngredient" placeholder="Add New Ingredient">
+                <input type="number" id="quantity" name="quantity" placeholder="Quantity">
                 <button type="submit">+</button>
             </form>
         </div>
@@ -50,7 +51,6 @@
                 </ul>
             {% endif %}
         </div>
-    </div>
-
+    </div>  
 </body>
 </html>

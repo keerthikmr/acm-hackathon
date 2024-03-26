@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import reciper_finder, get_response
 
 app = Flask(__name__)
+
+
+inventory1=[]
+
+sel_inventory =[]
 
 @app.route('/')
 def index():
@@ -23,7 +28,33 @@ def recipe():
 
 @app.route('/inventory')
 def inventory():
-    return render_template('inventory.html')
+    return render_template('inventory.html', ingredients=inventory1)
+
+@app.route('/add_ingredient', methods=['POST'])
+def add_ingredient():
+    new_ingredient = request.form.get('newIngredient')
+    quantity = int(request.form.get('quantity'))
+    ingre = new_ingredient + ", " + str(quantity)
+    
+    inventory1.append(ingre)
+    print('inven')
+    print(inventory1)
+    return redirect(url_for('inventory'))
+
+@app.route('/add_to_inventory', methods=['POST'])
+def add_to_inventory():
+    selected_ingredients = request.form.getlist('ingredient')
+    print(list(selected_ingredients))
+    ing_list = [] 
+    for ing in selected_ingredients:
+         ing_list.append(ing.split(', '))
+
+    print("this")
+    print(ing_list)
+    sel_inventory = selected_ingredients
+    print("Selected ingredients:", ing_list)  # Print the selected ingredients as a list of lists
+    return redirect(url_for('inventory'))
+
 
 if __name__ == '__main__':
     app.debug = True

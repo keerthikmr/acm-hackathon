@@ -42,30 +42,29 @@ ul a {
 
 .container {
     margin: 20px auto;
-    width: 400px;
+    width: 50%;
     text-align: center;
 }
 
 .pantry {
     background-color: lightgreen;
-    padding: 10px;
+    padding: 20px;
+    width: 600px;
+    /* margin-bottom: 5rem; */
     border-radius: 10px 10px 0 0;
 }
 
 form {
-    display: flex;
-    justify-content: center;
-}
+    width: 100%;
 
-input {
-    margin-left: 0.5rem;
+    /* text-align: center; */
 }
 
 .box {
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
+    /* padding: 10px; */
+    margin-top: 5rem;
     text-align: left;
 }
 
@@ -75,7 +74,7 @@ input {
 
 .add-button {
     float: left;
-    margin-top: -20px;
+    margin-top: 20px;
 }
 
 .details-section{
@@ -121,7 +120,6 @@ input {
     font-size: 20px;
     padding-top: 1rem;
     /* margin-left: 1rem; */
-    margin-bottom: 2rem;
     height: 300px;
     overflow: scroll;
 }
@@ -177,4 +175,16 @@ input {
 
 .step-item {
     margin-bottom: 0.8rem;
+}
+
+.use-recipe {
+    margin-bottom: 2rem;
+    text-align: right;
+    margin-right: 2rem;
+}
+
+.use-recipe button {
+    background-color: lightgreen;
+    font-weight: bold;
+    font-size: 20px;
 }

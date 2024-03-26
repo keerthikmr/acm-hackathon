@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe app</title>
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+    <script src="{{url_for('static', filename='main.js')}}"></script>
 </head>
 <body>
     <header>
@@ -70,6 +71,13 @@
                             </div>
                         {% endif %}
                     </div>
+                    
+                    <div class="use-recipe">
+                        <form>
+                            <button class="use-recipe-button" onclick="useRecipe({{['some', 'bye']}})">Use Recipe</button>
+                        </form>
+                    </div>
+
                 {% endfor %}
             {% endif %}
         </div>
