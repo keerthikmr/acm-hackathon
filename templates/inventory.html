@@ -7,6 +7,28 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
 </head>
 <body>
+    <!-- {% if flash_message %}
+    {{ing_list}}
+    <script>
+        let ing_list = "{{ing_list}}";
+        ing_list = JSON.parse(ing_list)
+        console.log(ing_list, typeof(ing_list))
+        console.log("ing", ing_list)
+        function YourFunction() {
+            inven_list = localStorage.getItem("inventory");
+            if (inven_list == null) {
+                inven_list = [];
+            }
+            console.log("firstinven", typeof(inven_list))
+            inven_list.push(...ing_list)
+            console.log("concat inven", inven_list)
+            localStorage.setItem("inventory", inven_list);
+        }
+
+        YourFunction();
+    </script>
+    {% endif %} -->
+
     <header>
         <div class="app-name">Recipe App</div>
         <nav>
@@ -25,6 +47,7 @@
             <form action="/add_ingredient" method="POST" class="add-button">
                 <input type="text" id="newIngredient" name="newIngredient" placeholder="Add New Ingredient">
                 <input type="number" id="quantity" name="quantity" placeholder="Quantity">
+                <input type="number" id="expiration" name="expiration" placeholder="expiration">
                 <button type="submit">+</button>
             </form>
         </div>
@@ -34,10 +57,14 @@
             <form action="/add_to_inventory" method="POST">
                 {% for ingredient in ingredients %}
                     <input type="checkbox" id="{{ ingredient }}" name="ingredient" value="{{ ingredient }}">
-                    <label for="{{ ingredient }}">{{ ingredient }}</label><br>
+                    {% if ingredient[1] < 3 or ingredient[2] < 3%}
+                        <label for="{{ ingredient }}" style="background-color: rgb(230, 39, 39);">{{ ingredient }}</label><br>
+                    {% else %}
+                        <label for="{{ ingredient }}">{{ ingredient }}</label><br>
+                    {% endif %}                    
                 {% endfor %}
                 <br>
-                <button type="submit">Add to Inventory</button>
+                <button type="submit">Add to Ingredient</button>
             </form>
         </div>
         
