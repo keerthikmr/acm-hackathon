@@ -4,16 +4,19 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/')
-def hello_world():
+def index():
 	return render_template('index.html')
 
-@app.route('/suggest')
-def suggest():
-    return 'Suggest'
+@app.route('/recipe')
+def recipe():
+    return render_template('recipe.html')
 
+@app.route('/inventory')
+def inventory():
+    return render_template('inventory.html')
 
-app.add_url_rule("/", "suggest", suggest)
 
 # main driver function
 if __name__ == '__main__':
