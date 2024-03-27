@@ -8,7 +8,7 @@ inventory1=[]
 
 sel_inventory =[]
 
-ingredient_list = [['Apple', 2, 2], ['Orange', 5, 4]]
+ingredient_list = [['Apple', 3, 2], ['Orange', 5, 4]]
 
 @app.route('/')
 def index():

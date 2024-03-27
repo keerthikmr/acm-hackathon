@@ -23,7 +23,7 @@
         <form action="/some" method="POST">
             {% if ingredients != "" %} 
                 {% for ingredient in ingredients %}
-                    <label for="{{ingredient}}">{{ingredient}}</label>
+                    <label for="{{ingredient}}" style="font-weight: bold; color:aliceblue ">{{ingredient}}</label>
                     <input type="number" id="{{ingredient}}-quantity" name="{{ingredient}}-quantity" placeholder="Quantity">
                     <br>
                 {% endfor %}
