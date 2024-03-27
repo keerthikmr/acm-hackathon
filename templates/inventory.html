@@ -7,7 +7,7 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
 </head>
 <body>
-    {% if flash_message %} 
+    <!-- {% if flash_message %} 
     {{ing_list}}
     <script>
         let ing_list = "{{ing_list}}";
@@ -29,7 +29,7 @@
         YourFunction();
     </script>
     {% endif %}
-
+ -->
     <header>
         <div class="app-name">Recipe App</div>
         <nav>
@@ -47,8 +47,8 @@
             <p>Number of Food Ingredients: {{ ingredients|length }}</p> {# Display the count of food ingredients #}
             <form action="/add_ingredient" method="POST" class="add-button">
                 <input type="text" id="newIngredient" name="newIngredient" placeholder="Add New Ingredient">
-                <input type="number" id="quantity" name="quantity" placeholder="Quantity">
-                <input type="number" id="expiration" name="expiration" placeholder="expiration">
+                <input type="number" id="quantity" name="quantity" placeholder="Quantity" min="1">
+                <input type="number" id="expiration" name="expiration" placeholder="expiration" min="1">
                 <button type="submit" style="font-size: large;">+</button>
             </form>
         </div>
