@@ -7,10 +7,11 @@
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
 </head>
 <body>
-    <!-- {% if flash_message %}
+    {% if flash_message %} 
     {{ing_list}}
     <script>
         let ing_list = "{{ing_list}}";
+        int_list = list(ing_list);
         ing_list = JSON.parse(ing_list)
         console.log(ing_list, typeof(ing_list))
         console.log("ing", ing_list)
@@ -27,7 +28,7 @@
 
         YourFunction();
     </script>
-    {% endif %} -->
+    {% endif %}
 
     <header>
         <div class="app-name">Recipe App</div>
@@ -58,6 +59,7 @@
                 <div>Name</div>
                 <div>Quantity</div>
                 <div>Expiration</div>
+                <div>Selection</div>
             </div>
             <form action="/add_to_inventory" method="POST">
                 {% for ingredient in ingredients %}

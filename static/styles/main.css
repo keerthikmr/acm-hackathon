@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
 
 header {
     background-color: rgb(175, 164, 164);
@@ -12,6 +16,18 @@ header {
     align-items: center;
     margin-bottom: 1rem;
 }
+
+button {
+    background-color: rgb(138, 190, 235);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* input {
+    background-color: turquoise;
+    /* padding: 10px; */
+    /* border-radius: 10px; */
+/* } */
 
 .app-name {
     font-size: 50px;
@@ -49,8 +65,9 @@ ul a {
 .pantry {
     background-color: lightgreen;
     padding: 20px;
-    width: 600px;
+    /* width: 600px; */
     /* margin-bottom: 5rem; */
+    padding-bottom: 5rem;;
     border-radius: 10px 10px 0 0;
 }
 
@@ -63,7 +80,7 @@ form {
 .box {
     background-color: white;
     border-radius: 10px;
-    /* padding: 10px; */
+    padding: 10px;
     margin-top: 5rem;
     text-align: left;
 }
@@ -121,7 +138,7 @@ form {
     padding-top: 1rem;
     /* margin-left: 1rem; */
     height: 300px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .recipe-header {
@@ -206,7 +223,7 @@ form {
 .ing-headers {
     display: flex;
     flex-direction: row;
-    width: 75%;
+    width: 100%;
     justify-content: space-around;
     align-items: center;
     text-align: right;

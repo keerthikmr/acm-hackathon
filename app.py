@@ -78,14 +78,11 @@ def add_ingredient():
 @app.route('/add_to_inventory', methods=['POST'])
 def add_to_inventory():
     selected_ingredients = request.form.getlist('ingredient')
-    print("ingreeee", selected_ingredients)
 
     ing_list = []
     for ing in selected_ingredients:
 
          ing_list.append(''.join(letter for letter in ing if letter.isalpha()))
-
-    print("Selected ingredients:", ing_list)
 
     # ingredient_list = []
     # for i in ing_list:
@@ -93,7 +90,7 @@ def add_to_inventory():
     # ingredient_list = ing_list    
     # print(ingredient_list)
 
-    return render_template('recipe.html', recipe=recipe_finder.get_recipes(ing_list))
+    return render_template('recipe.html', recipe=recipe_finder.get_recipes(ing_list), flag_message=True)
     # return render_template('recipe.html', recipe="")
 
 if __name__ == '__main__':
