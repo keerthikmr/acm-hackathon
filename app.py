@@ -2,8 +2,6 @@ from flask import Flask, render_template, request, redirect, url_for
 import recipe_finder, get_response
 
 app = Flask(__name__)
-
-
 inventory1=[]
 
 sel_inventory =[]
